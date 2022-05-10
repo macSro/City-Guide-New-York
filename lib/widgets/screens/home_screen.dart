@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mams_city_guide/screens/accomodations_screen.dart';
-import 'package:mams_city_guide/screens/events_screen.dart';
-import 'package:mams_city_guide/screens/guided_tours_screen.dart';
-import 'package:mams_city_guide/screens/places_screen.dart';
+import 'package:mams_city_guide/widgets/screens/accomodations_screen.dart';
+import 'package:mams_city_guide/widgets/screens/events_screen.dart';
+import 'package:mams_city_guide/widgets/screens/guided_tours_screen.dart';
+import 'package:mams_city_guide/widgets/screens/places_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);

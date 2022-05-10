@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:mams_city_guide/screens/home_screen.dart';
+import 'package:mams_city_guide/stores/reviews_store.dart';
+import 'package:mams_city_guide/widgets/screens/home_screen.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    Provider(
+      create: (_) => ReviewsStore(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
