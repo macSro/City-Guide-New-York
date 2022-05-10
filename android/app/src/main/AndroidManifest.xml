@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="pl.edu.pwr.city_guide.i242450.mams_city_guide">
    <application
-        android:label="mams_city_guide"
+        android:label="New York Guide"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

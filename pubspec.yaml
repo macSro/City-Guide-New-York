@@ -35,6 +35,9 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   maps_launcher: ^2.0.1
+  mobx: ^2.0.7
+  flutter_mobx: ^2.0.5
+  provider: ^6.0.2
 
 dev_dependencies:
   flutter_test:
@@ -46,6 +49,8 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^1.0.0
+  build_runner: ^2.1.10
+  mobx_codegen: ^2.0.6
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -76,9 +81,29 @@ flutter:
     - assets/images/luma1.png
     - assets/images/luma2.png
     - assets/images/luma3.png
+    - assets/images/plaza1.png
+    - assets/images/plaza2.png
+    - assets/images/perelman1.png
+    - assets/images/guggenheim1.png
+    - assets/images/guggenheim2.png
+    - assets/images/empire1.png
+    - assets/images/empire2.png
+    - assets/images/empire3.png
+    - assets/images/central1.png
+    - assets/images/central2.png
+    - assets/images/central3.png
+    - assets/images/central4.png
+    - assets/images/central5.png
     - assets/recordings/plaza.mp3
     - assets/recordings/perelman.mp3
     - assets/recordings/guggenheim.mp3
+    - assets/recordings/empire.mp3
+    - assets/recordings/central.mp3
+    - assets/videos/plaza.mp4
+    - assets/videos/perelman.mp4
+    - assets/videos/guggenheim.mp4
+    - assets/videos/empire.mp4
+    - assets/videos/central.mp4
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
