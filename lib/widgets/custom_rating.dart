@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Rating extends StatefulWidget {
-  const Rating({Key? key}) : super(key: key);
+class CustomRating extends StatefulWidget {
+  const CustomRating({Key? key}) : super(key: key);
 
   @override
-  State<Rating> createState() => _RatingState();
+  State<CustomRating> createState() => _CustomRatingState();
 }
 
-class _RatingState extends State<Rating> {
+class _CustomRatingState extends State<CustomRating> {
   final List<bool> _active = [false, false, false, false, false];
 
   @override
