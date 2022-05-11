@@ -25,6 +25,10 @@ class _CustomAudioPlayerState extends State<CustomAudioPlayer> {
   @override
   Widget build(BuildContext context) {
     return IconButton(
+      iconSize: 28,
+      padding: EdgeInsets.zero,
+      constraints: const BoxConstraints(),
+      splashRadius: 22,
       onPressed: () {
         if (_isPlaying) {
           _player?.stop();
