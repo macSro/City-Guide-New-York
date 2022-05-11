@@ -32,6 +32,7 @@ class PlacesScreen extends StatelessWidget {
                   .where((review) => review.objectName == kPlaces[index].name)
                   .toList(),
               recording: kPlaces[index].recording,
+              video: kPlaces[index].video,
             ),
           ),
         ),

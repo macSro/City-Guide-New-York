@@ -3,6 +3,7 @@ import 'package:mams_city_guide/models/location.dart';
 import 'package:mams_city_guide/models/review.dart';
 import 'package:mams_city_guide/widgets/audio_player.dart';
 import 'package:mams_city_guide/widgets/screens/reviews_screen.dart';
+import 'package:mams_city_guide/widgets/video_player.dart';
 import 'package:maps_launcher/maps_launcher.dart';
 
 class CustomCard extends StatelessWidget {
@@ -65,7 +66,6 @@ class CustomCard extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Text(
@@ -73,7 +73,19 @@ class CustomCard extends StatelessWidget {
               textAlign: TextAlign.start,
               style: Theme.of(context).textTheme.bodyLarge,
             ),
-            if (recording != null) CustomAudioPlayer(recording: recording!),
+            const Spacer(),
+            if (recording != null)
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Icon(
+                    Icons.record_voice_over,
+                    color: Colors.black,
+                  ),
+                  const SizedBox(width: 6),
+                  CustomAudioPlayer(recording: recording!),
+                ],
+              ),
           ],
         ),
         const SizedBox(height: 6),
@@ -105,6 +117,8 @@ class CustomCard extends StatelessWidget {
           ),
         if (images.isNotEmpty) const SizedBox(height: 12),
         if (images.isNotEmpty) _gallery(),
+        if (images.isNotEmpty) const SizedBox(height: 8),
+        if (video != null) Center(child: _videoLink(context)),
         if (images.isNotEmpty) const SizedBox(height: 8),
       ],
     );
@@ -178,7 +192,7 @@ class CustomCard extends StatelessWidget {
 
   Widget _gallery() {
     return SizedBox(
-      height: 200.0,
+      height: 150.0,
       child: PageView.builder(
         itemCount: images.length,
         controller: PageController(viewportFraction: 0.7),
@@ -190,6 +204,25 @@ class CustomCard extends StatelessWidget {
             ),
           );
         },
+      ),
+    );
+  }
+
+  Widget _videoLink(context) {
+    return GestureDetector(
+      child: const Text(
+        'Watch the video!',
+        style: TextStyle(
+          color: Colors.blue,
+          decoration: TextDecoration.underline,
+        ),
+      ),
+      onTap: () => showDialog(
+        context: context,
+        barrierColor: Colors.black87,
+        builder: (context) => Dialog(
+          child: VideoPlayer(video: video!),
+        ),
       ),
     );
   }
