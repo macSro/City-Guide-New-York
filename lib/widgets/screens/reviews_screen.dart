@@ -52,12 +52,26 @@ class _ReviewsScreenState extends State<ReviewsScreen> {
             ),
             body: Column(
               children: [
-                Expanded(
-                  child: ListView.builder(
-                    itemCount: reviews.length,
-                    itemBuilder: (context, index) => _review(reviews, index),
+                if (reviews.isEmpty)
+                  const Expanded(
+                    child: Center(
+                      child: Text(
+                        'Be the first one to add a review!',
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.cyan,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
                   ),
-                ),
+                if (reviews.isNotEmpty)
+                  Expanded(
+                    child: ListView.builder(
+                      itemCount: reviews.length,
+                      itemBuilder: (context, index) => _review(reviews, index),
+                    ),
+                  ),
                 const SizedBox(height: 16),
                 _ratingButtons(),
                 Padding(
@@ -131,6 +145,9 @@ class _ReviewsScreenState extends State<ReviewsScreen> {
         ),
       );
     }
+    setState(() {
+      _fillInStars(1, 5, false);
+    });
     _controller.text = '';
   }
 

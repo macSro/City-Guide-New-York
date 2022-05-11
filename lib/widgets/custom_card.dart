@@ -47,7 +47,7 @@ class CustomCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(12),
       width: double.infinity,
-      color: Colors.blue,
+      color: Colors.cyan,
       alignment: Alignment.center,
       child: Text(
         title,
@@ -152,28 +152,26 @@ class CustomCard extends StatelessWidget {
       children: [
         ...stars,
         const SizedBox(width: 8),
-        if (reviews!.isEmpty) const Text('No reviews'),
-        if (reviews!.isNotEmpty)
-          GestureDetector(
-            child: const Text(
-              'Check reviews',
-              style: TextStyle(
-                color: Colors.blue,
-                decoration: TextDecoration.underline,
-              ),
+        GestureDetector(
+          child: const Text(
+            'Check reviews',
+            style: TextStyle(
+              color: Colors.blue,
+              decoration: TextDecoration.underline,
             ),
-            onTap: () => Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => ReviewsScreen(
-                  objectName: title,
-                  type: (reviews!.runtimeType == List<PlaceReview>)
-                      ? ReviewType.place
-                      : ReviewType.accomodation,
-                ),
+          ),
+          onTap: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ReviewsScreen(
+                objectName: title,
+                type: (reviews!.runtimeType == List<PlaceReview>)
+                    ? ReviewType.place
+                    : ReviewType.accomodation,
               ),
             ),
           ),
+        ),
       ],
     );
   }
