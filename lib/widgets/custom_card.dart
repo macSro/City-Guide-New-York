@@ -198,7 +198,7 @@ class CustomCard extends StatelessWidget {
 
   Widget _gallery() {
     return SizedBox(
-      height: 150.0,
+      height: 200.0,
       child: PageView.builder(
         itemCount: images.length,
         controller: PageController(viewportFraction: 0.7),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:mams_city_guide/API_KEY.dart';
 import 'package:mams_city_guide/models/location.dart';
 
 class CustomMap extends StatefulWidget {
@@ -13,7 +14,6 @@ class CustomMap extends StatefulWidget {
 }
 
 class _CustomMapState extends State<CustomMap> {
-  final String key = 'AIzaSyDn5zsWgi_0PdlD2JoVDh-67Y118M21oJw';
   final PolylinePoints _polylinePoints = PolylinePoints();
   final List<LatLng> _routePoints = [];
   final Set<Polyline> _polylines = <Polyline>{};
@@ -22,7 +22,7 @@ class _CustomMapState extends State<CustomMap> {
   void _onMapCreated(controller) async {
     for (int i = 0; i < widget.locations.length - 1; i++) {
       PolylineResult result = await _polylinePoints.getRouteBetweenCoordinates(
-        key,
+        API_KEY,
         PointLatLng(
           widget.locations[i].latitude,
           widget.locations[i].longitude,

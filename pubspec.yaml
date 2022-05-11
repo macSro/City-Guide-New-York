@@ -68,6 +68,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/images/background.png
     - assets/images/zumba1.png
     - assets/images/zumba2.png
     - assets/images/zumba3.png
