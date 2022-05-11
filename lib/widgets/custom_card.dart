@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mams_city_guide/models/location.dart';
 import 'package:mams_city_guide/models/review.dart';
+import 'package:mams_city_guide/widgets/audio_player.dart';
 import 'package:mams_city_guide/widgets/screens/reviews_screen.dart';
 import 'package:maps_launcher/maps_launcher.dart';
 
@@ -10,7 +11,8 @@ class CustomCard extends StatelessWidget {
   final Location location;
   final List<String> images;
   final List<Review>? reviews;
-  final List<Widget>? extraContent;
+  final String? recording;
+  final String? video;
 
   const CustomCard({
     Key? key,
@@ -19,7 +21,8 @@ class CustomCard extends StatelessWidget {
     required this.location,
     required this.images,
     this.reviews,
-    this.extraContent,
+    this.recording,
+    this.video,
   }) : super(key: key);
 
   @override
@@ -61,10 +64,16 @@ class CustomCard extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Details',
-          textAlign: TextAlign.start,
-          style: Theme.of(context).textTheme.bodyLarge,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              'Details',
+              textAlign: TextAlign.start,
+              style: Theme.of(context).textTheme.bodyLarge,
+            ),
+            if (recording != null) CustomAudioPlayer(recording: recording!),
+          ],
         ),
         const SizedBox(height: 6),
         Text(
