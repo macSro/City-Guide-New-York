@@ -4,7 +4,7 @@ A simple City Guide Flutter App for Mobile And Multimedia Systems (PWr).
 
 - Provide a Google Maps API Key in `AndroidManifest.xml`:
 <br>
-`<meta-data`<br>
+`<meta-data>`<br>
 `   android:name="com.google.android.geo.API_KEY"`<br>
 `   android:value="ENTER YOUR GOOGLE MAPS API KEY HERE"/>`
 <br><br>
