@@ -150,13 +150,13 @@ final List<GuidedTour> kGuidedTours = [
     name: 'Culture injection',
     description:
         'There are so many sightseeing opportunities in New York City that it would nearly impossible to list them all. If you are happy to include some cultural experiences into your day, this tour can help you. The most interesting museums, monuments, musical theatres and more have been gathered here for you. What are you waiting for?',
-    places: [kPlaces[1], kPlaces[2], kPlaces[3]],
+    places: [kPlaces[3], kPlaces[1], kPlaces[2]],
   ),
   GuidedTour(
     name: 'Sightseeing maniac',
     description:
         'If you are not afraid to set the alarm clock to the very morning because you want to explore New York City to the limits, then this tour will meet your need (maybe even exceed them?). Here we have gathered all of the most popular places you can find in the city. Parks, museums, art exhibitions, skyscrapers, famous restaurants... It is all here. Good luck!',
-    places: [kPlaces[0], kPlaces[1], kPlaces[2], kPlaces[3], kPlaces[4]],
+    places: [kPlaces[0], kPlaces[3], kPlaces[1], kPlaces[4], kPlaces[2]],
   ),
 ];
 

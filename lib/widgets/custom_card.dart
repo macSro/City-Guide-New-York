@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:mams_city_guide/models/location.dart';
 import 'package:mams_city_guide/models/review.dart';
 import 'package:mams_city_guide/widgets/audio_player.dart';
+import 'package:mams_city_guide/widgets/custom_map.dart';
 import 'package:mams_city_guide/widgets/screens/reviews_screen.dart';
 import 'package:mams_city_guide/widgets/video_player.dart';
-import 'package:maps_launcher/maps_launcher.dart';
 
 class CustomCard extends StatelessWidget {
   final String title;
@@ -99,7 +99,7 @@ class CustomCard extends StatelessWidget {
           style: Theme.of(context).textTheme.bodyLarge,
         ),
         const SizedBox(height: 6),
-        _placeLink(),
+        _placeLink(context),
         const SizedBox(height: 16),
         if (reviews != null)
           Text(
@@ -124,7 +124,7 @@ class CustomCard extends StatelessWidget {
     );
   }
 
-  Widget _placeLink() {
+  Widget _placeLink(context) {
     return GestureDetector(
       child: Text(
         location.label,
@@ -133,11 +133,17 @@ class CustomCard extends StatelessWidget {
           decoration: TextDecoration.underline,
         ),
       ),
-      onTap: () => MapsLauncher.launchCoordinates(
-        location.latitude,
-        location.longitude,
-        location.label,
-      ),
+      onTap: () {
+        showDialog(
+          context: context,
+          builder: (context) => Dialog(
+            child: SizedBox(
+              height: MediaQuery.of(context).size.height / 2,
+              child: CustomMap(locations: [location]),
+            ),
+          ),
+        );
+      },
     );
   }
 

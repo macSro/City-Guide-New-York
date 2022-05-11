@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mams_city_guide/models/guided_tour.dart';
+import 'package:mams_city_guide/widgets/custom_map.dart';
 
 class GuidedTourScreen extends StatelessWidget {
   final GuidedTour guidedTour;
@@ -28,7 +29,7 @@ class GuidedTourScreen extends StatelessWidget {
               style: Theme.of(context).textTheme.bodyLarge,
               textAlign: TextAlign.justify,
             ),
-            const SizedBox(height: 32),
+            const SizedBox(height: 24),
             Center(
               child: Text(
                 'What will you visit?',
@@ -36,20 +37,29 @@ class GuidedTourScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 16),
-            Expanded(
-              child: ListView(
-                children: guidedTour.places
-                    .map((place) => Center(
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 4),
-                            child: Text(
-                              place.name,
-                              style: Theme.of(context).textTheme.bodyLarge,
-                            ),
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: guidedTour.places
+                  .map((place) => Center(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 4),
+                          child: Text(
+                            place.name,
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyLarge!
+                                .copyWith(color: Colors.cyan),
                           ),
-                        ))
-                    .toList(),
-              ),
+                        ),
+                      ))
+                  .toList(),
+            ),
+            const SizedBox(height: 16),
+            Expanded(
+              child: CustomMap(
+                  locations: guidedTour.places
+                      .map((place) => place.location)
+                      .toList()),
             ),
           ],
         ),

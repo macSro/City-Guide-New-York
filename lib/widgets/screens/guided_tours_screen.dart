@@ -12,6 +12,7 @@ class GuidedToursScreen extends StatelessWidget {
       body: ListView.builder(
         itemCount: kGuidedTours.length,
         itemBuilder: (context, index) => Card(
+          shape: const BeveledRectangleBorder(),
           elevation: 4,
           child: ListTile(
             leading: const Icon(
