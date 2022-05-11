@@ -30,7 +30,6 @@ class _ReviewsScreenState extends State<ReviewsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    print('eee');
     final store = Provider.of<ReviewsStore>(context);
 
     return Observer(
@@ -63,37 +62,7 @@ class _ReviewsScreenState extends State<ReviewsScreen> {
                 _ratingButtons(),
                 Padding(
                   padding: const EdgeInsets.all(16),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: TextField(
-                          onChanged: (value) {
-                            if (value.length == 1) {
-                              setState(() {});
-                            }
-                          },
-                          controller: _controller,
-                          minLines: 1,
-                          maxLines: 5,
-                          decoration: const InputDecoration(
-                            border: OutlineInputBorder(),
-                            hintText: 'Review...',
-                          ),
-                        ),
-                      ),
-                      const SizedBox(width: 16),
-                      ElevatedButton(
-                        onPressed:
-                            _active.contains(true) && _controller.text != ''
-                                ? () => _handleTap(store)
-                                : null,
-                        child: const Padding(
-                          padding: EdgeInsets.all(8),
-                          child: Icon(Icons.edit),
-                        ),
-                      ),
-                    ],
-                  ),
+                  child: _reviewForm(store),
                 ),
                 if (!_active.contains(true) || _controller.text == '')
                   const Text(
@@ -107,6 +76,39 @@ class _ReviewsScreenState extends State<ReviewsScreen> {
           ),
         );
       },
+    );
+  }
+
+  Widget _reviewForm(ReviewsStore store) {
+    return Row(
+      children: [
+        Expanded(
+          child: TextField(
+            onChanged: (value) {
+              if (value.length == 1) {
+                setState(() {});
+              }
+            },
+            controller: _controller,
+            minLines: 1,
+            maxLines: 5,
+            decoration: const InputDecoration(
+              border: OutlineInputBorder(),
+              hintText: 'Review...',
+            ),
+          ),
+        ),
+        const SizedBox(width: 16),
+        ElevatedButton(
+          onPressed: _active.contains(true) && _controller.text != ''
+              ? () => _handleTap(store)
+              : null,
+          child: const Padding(
+            padding: EdgeInsets.all(8),
+            child: Icon(Icons.edit),
+          ),
+        ),
+      ],
     );
   }
 
