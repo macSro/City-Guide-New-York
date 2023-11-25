@@ -18,7 +18,11 @@ class _VideoPlayerState extends State<VideoPlayer> {
     super.initState();
     _controller =
         vid.VideoPlayerController.asset('assets/videos/${widget.video}')
-          ..addListener(() => setState(() {}))
+          ..addListener(() {
+            if (mounted) {
+              setState(() {});
+            }
+          })
           ..initialize().then((value) => _controller!.setVolume(0));
   }
 
