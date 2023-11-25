@@ -133,6 +133,8 @@ Enabling Google APIs tends to suffer from delays (in my experience up to 10mins)
 
 ## Demo
 
+[guided_tours.webm](https://github.com/macSro/City-Guide-New-York/assets/56345054/334735bb-1517-416b-931a-23355e11cdcc)
 
+[places.webm](https://github.com/macSro/City-Guide-New-York/assets/56345054/e99d3a57-d366-46b1-83d0-d9d2f10cadab)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
